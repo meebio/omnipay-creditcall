@@ -1,17 +1,17 @@
 <?php
 
-namespace Omnipay\Skeleton;
+namespace Omnipay\Creditcall;
 
 use Omnipay\Common\AbstractGateway;
 
 /**
- * Skeleton Gateway
+ * Creditcall CardEaseXML Gateway
  */
-class Gateway extends AbstractGateway
+class CardEaseXMLGateway extends AbstractGateway
 {
     public function getName()
     {
-        return 'Skeleton';
+        return 'Creditcall CardEaseXML';
     }
 
     public function getDefaultParameters()
@@ -37,6 +37,6 @@ class Gateway extends AbstractGateway
      */
     public function authorize(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\Skeleton\Message\AuthorizeRequest', $parameters);
+        return $this->createRequest('\Omnipay\Creditcall\Message\AuthorizeRequest', $parameters);
     }
 }
