@@ -5,15 +5,21 @@ namespace Omnipay\Creditcall;
 use Omnipay\Common\AbstractGateway;
 
 /**
- * Creditcall  Gateway
+ * Creditcall Gateway
  */
 class Gateway extends AbstractGateway
 {
+    /**
+     * @return string
+     */
     public function getName()
     {
         return 'Creditcall';
     }
 
+    /**
+     * @return array
+     */
     public function getDefaultParameters()
     {
         return array(

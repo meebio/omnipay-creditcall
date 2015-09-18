@@ -200,23 +200,6 @@ class AuthorizeRequest extends AbstractRequest
     /**
      * @return string
      */
-    public function getCardReference()
-    {
-        return $this->getParameter('cardReference');
-    }
-
-    /**
-     * @param string $value
-     * @return $this
-     */
-    public function setCardReference($value)
-    {
-        return $this->setParameter('cardReference', $value);
-    }
-
-    /**
-     * @return string
-     */
     public function getCardHash()
     {
         return $this->getParameter('cardHash');
