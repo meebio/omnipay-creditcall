@@ -34,11 +34,6 @@
             "Omnipay\\Creditcall\\": "src"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Omnipay\\Creditcall\\Test\\": "tests"
-        }
-    },
     "scripts": {
         "test": "phpunit"
     },
