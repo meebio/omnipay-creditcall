@@ -25,7 +25,7 @@ $ composer require meebio/omnipay-creditcall
 
 The following gateways are provided by this package:
 
- * Creditcall_CardEaseXML
+ * Creditcall
 
 For general usage instructions, please see the main [Omnipay](https://github.com/thephpleague/omnipay) repository.
 

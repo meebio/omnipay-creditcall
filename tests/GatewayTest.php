@@ -5,13 +5,13 @@ namespace Omnipay\Creditcall;
 use Omnipay\Tests\GatewayTestCase;
 use Omnipay\Common\CreditCard;
 
-class CardEaseXMLGatewayTest extends GatewayTestCase
+class GatewayTest extends GatewayTestCase
 {
     public function setUp()
     {
         parent::setUp();
 
-        $this->gateway = new CardEaseXMLGateway($this->getHttpClient(), $this->getHttpRequest());
+        $this->gateway = new Gateway($this->getHttpClient(), $this->getHttpRequest());
 
         $this->options = array(
             'amount' => '10.00',

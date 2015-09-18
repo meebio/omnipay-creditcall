@@ -8,7 +8,7 @@ use Omnipay\Tests\TestCase;
 class AuthorizeRequestTest extends TestCase
 {
     /**
-     * @var AuthorizeRequest
+     * @var AuthorizeAbstractRequest
      */
     private $request;
 
@@ -16,7 +16,7 @@ class AuthorizeRequestTest extends TestCase
     {
         parent::setUp();
 
-        $this->request = new AuthorizeRequest($this->getHttpClient(), $this->getHttpRequest());
+        $this->request = new AuthorizeAbstractRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request->initialize(
             array(
                 'amount' => '10.00',

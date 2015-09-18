@@ -5,13 +5,13 @@ namespace Omnipay\Creditcall;
 use Omnipay\Common\AbstractGateway;
 
 /**
- * Creditcall CardEaseXML Gateway
+ * Creditcall  Gateway
  */
-class CardEaseXMLGateway extends AbstractGateway
+class Gateway extends AbstractGateway
 {
     public function getName()
     {
-        return 'Creditcall CardEaseXML';
+        return 'Creditcall';
     }
 
     public function getDefaultParameters()
@@ -113,46 +113,46 @@ class CardEaseXMLGateway extends AbstractGateway
 
     /**
      * @param array $parameters
-     * @return Message\CardEaseXMLAuthorizeRequest
+     * @return Message\AuthorizeRequest
      */
     public function authorize(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\Creditcall\Message\CardEaseXMLAuthorizeRequest', $parameters);
+        return $this->createRequest('\Omnipay\Creditcall\Message\AuthorizeRequest', $parameters);
     }
 
     /**
      * @param array $parameters
-     * @return Message\CardEaseXMLCaptureRequest
+     * @return Message\CaptureRequest
      */
     public function capture(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\Creditcall\Message\CardEaseXMLCaptureRequest', $parameters);
+        return $this->createRequest('\Omnipay\Creditcall\Message\CaptureRequest', $parameters);
     }
 
     /**
      * @param array $parameters
-     * @return Message\CardEaseXMLPurchaseRequest
+     * @return Message\PurchaseRequest
      */
     public function purchase(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\Creditcall\Message\CardEaseXMLPurchaseRequest', $parameters);
+        return $this->createRequest('\Omnipay\Creditcall\Message\PurchaseRequest', $parameters);
     }
 
     /**
      * @param array $parameters
-     * @return Message\CardEaseXMLVoidRequest
+     * @return Message\VoidRequest
      */
     public function void(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\Creditcall\Message\CardEaseXMLVoidRequest', $parameters);
+        return $this->createRequest('\Omnipay\Creditcall\Message\VoidRequest', $parameters);
     }
 
     /**
      * @param array $parameters
-     * @return Message\CardEaseXMLRefundRequest
+     * @return Message\RefundRequest
      */
     public function refund(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\Creditcall\Message\CardEaseXMLRefundRequest', $parameters);
+        return $this->createRequest('\Omnipay\Creditcall\Message\RefundRequest', $parameters);
     }
 }
