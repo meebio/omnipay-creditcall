@@ -16,7 +16,7 @@ class ResponseTest extends TestCase
     public function testProPurchaseSuccess()
     {
         $httpResponse = $this->getMockHttpResponse('AuthorizeSuccess.txt');
-        $response = new Response($this->getMockRequest(), $httpResponse->getBody());
+        $response     = new Response($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertTrue($response->isSuccessful());
         $this->assertEquals('1234', $response->getTransactionReference());

@@ -1,0 +1,6 @@
+HTTP/1.1 200 OK
+Content-Length: 491
+Content-Type: text/xml
+Date: Wed, 25 Jun 2014 11:40:06 GMT
+
+<?xml version="1.0" encoding="utf-8"?><Response type="CardEaseXML" version="1.1.0"><TransactionDetails><CardEaseReference>a85f576e-5dfc-e311-983c-00505692354f</CardEaseReference><LocalDateTime format="yyyyMMddHHmmss">20140625124007</LocalDateTime><UTC format="yyyyMMddHHmmss">20140625114007</UTC></TransactionDetails><Result><LocalResult>1</LocalResult><AuthorisationEntity>Unknown</AuthorisationEntity><Errors><Error code="2101">CardEaseReferenceInvalid</Error></Errors></Result></Response>

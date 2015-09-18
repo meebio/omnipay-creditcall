@@ -1,0 +1,6 @@
+HTTP/1.1 200 OK
+Content-Length: 780
+Content-Type: text/xml
+Date: Wed, 25 Jun 2014 10:55:48 GMT
+
+<?xml version="1.0" encoding="utf-8"?><Response type="CardEaseXML" version="1.1.0"><TransactionDetails><CardEaseReference>6f3b812a-dafa-e311-983c-00505692354f</CardEaseReference><Reference>local_2271f071d828ccd9ce8dd658e9f8a900</Reference><LocalDateTime format="yyyyMMddHHmmss">20140625125547</LocalDateTime><UTC format="yyyyMMddHHmmss">20140625105547</UTC></TransactionDetails><Result><LocalResult>0</LocalResult><AuthCode>38E2C4</AuthCode><AuthorisationEntity>Unknown</AuthorisationEntity></Result><CardDetails><CardReference>a4f483ca-55fc-e311-8ca6-001422187e37</CardReference><CardHash>qo3tCvArxWUxsCONcIWGyHUhXKs=</CardHash><PAN>401200xxxxxx0026</PAN><ExpiryDate format="yyMM">1406</ExpiryDate><CardScheme><Description>VISA</Description></CardScheme></CardDetails></Response>

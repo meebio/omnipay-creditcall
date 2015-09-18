@@ -1,0 +1,6 @@
+HTTP/1.1 200 OK
+Content-Length: 423
+Content-Type: text/xml
+Date: Wed, 25 Jun 2014 11:34:28 GMT
+
+<?xml version="1.0" encoding="utf-8"?><Response type="CardEaseXML" version="1.1.0"><TransactionDetails><CardEaseReference>744f34a8-5cfc-e311-983c-00505692354f</CardEaseReference><LocalDateTime format="yyyyMMddHHmmss">20140625133427</LocalDateTime><UTC format="yyyyMMddHHmmss">20140625113427</UTC></TransactionDetails><Result><LocalResult>0</LocalResult><AuthorisationEntity>Unknown</AuthorisationEntity></Result></Response>
