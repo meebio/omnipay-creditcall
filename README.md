@@ -1,6 +1,6 @@
 # Omnipay: Creditcall
 
-**Skeleton gateway for the Omnipay PHP payment processing library**
+**Creditcall gateway for the Omnipay PHP payment processing library**
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/meebio/omnipay-creditcall.svg?style=flat-square)](https://packagist.org/packages/meebio/omnipay-creditcall)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
