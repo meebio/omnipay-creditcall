@@ -127,7 +127,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     public function sendData($data)
     {
-        $headers = array(
+        $headers      = array(
             'Content-Type' => 'text/xml',
         );
         $httpResponse = $this->httpClient->post($this->getEndpoint(), $headers, $data->asXML())->send();

@@ -102,11 +102,11 @@ class Response extends AbstractResponse
     protected function mapError($error)
     {
         $errorsMap = array(
-            'CSC Invalid Length.'                 => 'The CVV provided is invalid.',
-            'AmountTooSmall'                      => 'The amount is too small for payment to be processed.',
-            'cvv_not_matched'                     => 'The CVV provided is invalid.',
-            'address_not_matched'                 => 'The Address provided is invalid.',
-            'zip_not_matched'                     => 'The Zip code provided is invalid.',
+            'CSC Invalid Length.' => 'The CVV provided is invalid.',
+            'AmountTooSmall'      => 'The amount is too small for payment to be processed.',
+            'cvv_not_matched'     => 'The CVV provided is invalid.',
+            'address_not_matched' => 'The Address provided is invalid.',
+            'zip_not_matched'     => 'The Zip code provided is invalid.',
         );
 
         if (array_key_exists($error, $errorsMap)) {
