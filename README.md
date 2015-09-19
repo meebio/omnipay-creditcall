@@ -38,8 +38,8 @@ This driver supports following transaction types:
 Gateway instantiation:
 
     $gateway = Omnipay::create('Creditcall');
-    $gateway->setTerminalId('99960713');
-    $gateway->setTransactionKey('5CbEvg8hXCe3ASs6');
+    $gateway->setTerminalId('1234567');
+    $gateway->setTransactionKey('5CbEvA8hDCe6ASd6');
     $gateway->setTestMode(true);
 
 Driver also supports paying with `cardReference` instead of `card`, 
