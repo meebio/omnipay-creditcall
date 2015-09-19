@@ -41,7 +41,7 @@ class Response extends AbstractResponse
     public function getMessage()
     {
         if (!isset($this->data->Result->Errors)) {
-            return array();
+            return null;
         }
 
         $errors = array();
@@ -52,7 +52,7 @@ class Response extends AbstractResponse
             }
         }
 
-        return implode(' ', $errors);
+        return count($errors) > 0 ? implode(' ', $errors) : null;
     }
 
     /**

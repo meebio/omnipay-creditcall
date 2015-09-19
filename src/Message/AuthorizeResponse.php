@@ -20,7 +20,7 @@ class AuthorizeResponse extends Response
          * If request was not successful and there is no errors
          * from gateway we check if CVV or address or zip verification failed.
          */
-        if (!$this->isSuccessful() && $errors === '') {
+        if (!$this->isSuccessful() && is_null($errors)) {
             $errorsArray = array();
             if ($this->isCvvNotMatched()) {
                 $errorsArray[] = $this->mapError('cvv_not_matched');
@@ -34,7 +34,7 @@ class AuthorizeResponse extends Response
                 $errorsArray[] = $this->mapError('zip_not_matched');
             }
 
-            $errors = implode(' ', $errors);
+            $errors =  count($errors) > 0 ? implode(' ', $errorsArray) : null;
         }
 
         return $errors;
