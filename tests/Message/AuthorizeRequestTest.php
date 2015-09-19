@@ -1,8 +1,9 @@
 <?php
 
-namespace Omnipay\Creditcall\Message;
+namespace Omnipay\Creditcall\Test\Message;
 
 use Omnipay\Common\CreditCard;
+use Omnipay\Creditcall\Message\AuthorizeRequest;
 use Omnipay\Tests\TestCase;
 
 class AuthorizeRequestTest extends TestCase
@@ -10,25 +11,31 @@ class AuthorizeRequestTest extends TestCase
     /**
      * @var AuthorizeRequest
      */
-    public $request;
+    protected $request;
+
+    /**
+     * @return array
+     */
+    protected function getOptions()
+    {
+        return array(
+            'terminalId'     => '923632313',
+            'transactionKey' => '23ASDas3d323ASs6',
+            'testMode'       => true,
+            'amount'         => '12.00',
+            'currency'       => 'GBP',
+            'transactionId'  => '123',
+            'card'           => $this->getValidCard(),
+            'verifyCvv'      => true,
+        );
+    }
 
     public function setUp()
     {
         parent::setUp();
 
         $this->request = new AuthorizeRequest($this->getHttpClient(), $this->getHttpRequest());
-        $this->request->initialize(
-            array(
-                'terminalId'     => '923632313',
-                'transactionKey' => '23ASDas3d323ASs6',
-                'testMode'       => true,
-                'amount'         => '12.00',
-                'currency'       => 'GBP',
-                'transactionId'  => '123',
-                'card'           => $this->getValidCard(),
-                'verifyCvv'      => true,
-            )
-        );
+        $this->request->initialize($this->getOptions());
     }
 
     public function testBaseData()
@@ -36,7 +43,6 @@ class AuthorizeRequestTest extends TestCase
         $data = $this->request->getData();
 
         $this->assertSame('Auth', (string)$data->TransactionDetails->MessageType);
-
         $this->assertSame('923632313', (string)$data->TerminalDetails->TerminalID);
         $this->assertSame('23ASDas3d323ASs6', (string)$data->TerminalDetails->TransactionKey);
     }

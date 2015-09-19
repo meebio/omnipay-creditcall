@@ -1,25 +1,40 @@
 <?php
 
-namespace Omnipay\Creditcall\Message;
+namespace Omnipay\Creditcall\Test\Message;
 
+use Omnipay\Creditcall\Message\AuthorizeResponse;
 use Omnipay\Tests\TestCase;
 
 class ResponseTest extends TestCase
 {
-    public function testConstruct()
-    {
-        // response should decode URL format data
-        $response = new Response($this->getMockRequest(), 'example=value&foo=bar');
-        $this->assertEquals(array('example' => 'value', 'foo' => 'bar'), $response->getData());
-    }
-
-    public function testProPurchaseSuccess()
+    public function testAuthorizeSuccess()
     {
         $httpResponse = $this->getMockHttpResponse('AuthorizeSuccess.txt');
-        $response     = new Response($this->getMockRequest(), $httpResponse->getBody());
+        $response = new AuthorizeResponse($this->getMockRequest(), $httpResponse->xml());
 
         $this->assertTrue($response->isSuccessful());
-        $this->assertEquals('1234', $response->getTransactionReference());
+        $this->assertFalse($response->isRedirect());
         $this->assertNull($response->getMessage());
+        $this->assertSame('6f3b812a-dafa-e311-983c-00505692354f', $response->getTransactionReference());
+        $this->assertSame('a4f483ca-55fc-e311-8ca6-001422187e37', $response->getCardReference());
+        $this->assertSame('qo3tCvArxWUxsCONcIWGyHUhXKs=', $response->getCardHash());
+
+        $this->assertFalse($response->isCvvNotMatched());
+        $this->assertFalse($response->isAddressNotMatched());
+        $this->assertFalse($response->isZipNotMatched());
+    }
+
+    public function testAuthorizeFailure()
+    {
+        $httpResponse = $this->getMockHttpResponse('AuthorizeFailure.txt');
+        $response = new AuthorizeResponse($this->getMockRequest(), $httpResponse->xml());
+
+        $this->assertFalse($response->isSuccessful());
+        $this->assertFalse($response->isRedirect());
+        $this->assertSame('CvvNotMatched', $response->getMessage());
+
+        $this->assertTrue($response->isCvvNotMatched());
+        $this->assertFalse($response->isAddressNotMatched());
+        $this->assertFalse($response->isZipNotMatched());
     }
 }
