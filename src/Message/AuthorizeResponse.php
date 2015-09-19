@@ -34,7 +34,7 @@ class AuthorizeResponse extends Response
                 $errorsArray[] = 'ZipNotMatched';
             }
 
-            $errors =  count($errorsArray) > 0 ? implode(' ', $errorsArray) : null;
+            $errors = count($errorsArray) > 0 ? implode(' ', $errorsArray) : null;
         }
 
         return $errors;

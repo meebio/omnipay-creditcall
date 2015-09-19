@@ -10,7 +10,7 @@ class ResponseTest extends TestCase
     public function testAuthorizeSuccess()
     {
         $httpResponse = $this->getMockHttpResponse('AuthorizeSuccess.txt');
-        $response = new AuthorizeResponse($this->getMockRequest(), $httpResponse->xml());
+        $response     = new AuthorizeResponse($this->getMockRequest(), $httpResponse->xml());
 
         $this->assertTrue($response->isSuccessful());
         $this->assertFalse($response->isRedirect());
@@ -27,7 +27,7 @@ class ResponseTest extends TestCase
     public function testAuthorizeFailure()
     {
         $httpResponse = $this->getMockHttpResponse('AuthorizeFailure.txt');
-        $response = new AuthorizeResponse($this->getMockRequest(), $httpResponse->xml());
+        $response     = new AuthorizeResponse($this->getMockRequest(), $httpResponse->xml());
 
         $this->assertFalse($response->isSuccessful());
         $this->assertFalse($response->isRedirect());
@@ -36,5 +36,19 @@ class ResponseTest extends TestCase
         $this->assertTrue($response->isCvvNotMatched());
         $this->assertFalse($response->isAddressNotMatched());
         $this->assertFalse($response->isZipNotMatched());
+    }
+
+    public function testAuthorizeFailure2()
+    {
+        $httpResponse = $this->getMockHttpResponse('AuthorizeFullVerifyFailure.txt');
+        $response     = new AuthorizeResponse($this->getMockRequest(), $httpResponse->xml());
+
+        $this->assertFalse($response->isSuccessful());
+        $this->assertFalse($response->isRedirect());
+        $this->assertSame('CvvNotMatched AddressNotMatched ZipNotMatched', $response->getMessage());
+
+        $this->assertTrue($response->isCvvNotMatched());
+        $this->assertTrue($response->isAddressNotMatched());
+        $this->assertTrue($response->isZipNotMatched());
     }
 }

@@ -63,8 +63,6 @@ class AuthorizeRequestTest extends TestCase
         $this->assertSame('cnp', (string)$manual->attributes()->type);
         $this->assertSame($card->getNumber(), (string)$manual->PAN);
         $this->assertSame($card->getExpiryDate('ym'), (string)$manual->ExpiryDate);
-        $this->assertSame('', (string)$manual->StartDate);
-        $this->assertSame('', (string)$manual->IssueNumber);
         $this->assertSame((string)$card->getCvv(), (string)$data->CardDetails->AdditionalVerification->CSC);
     }
 

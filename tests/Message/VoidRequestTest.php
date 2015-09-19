@@ -19,8 +19,8 @@ class VoidRequestTest extends TestCase
         $this->request = new VoidRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request->initialize(array(
             'transactionReference' => '6f3b812a-dafa-e311-983c-00505692354f',
-            'transactionId' => '123',
-            'voidReason' => 'DummyReason',
+            'transactionId'        => '123',
+            'voidReason'           => 'DummyReason',
         ));
     }
 

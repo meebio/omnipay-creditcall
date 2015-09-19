@@ -18,7 +18,7 @@ class RefundRequestTest extends TestCase
 
         $this->request = new RefundRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request->initialize(array(
-            'amount' => '12.00',
+            'amount'               => '12.00',
             'transactionReference' => '6f3b812a-dafa-e311-983c-00505692354f',
         ));
     }
