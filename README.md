@@ -5,8 +5,6 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/meebio/omnipay-creditcall.svg?style=flat-square)](https://packagist.org/packages/meebio/omnipay-creditcall)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/meebio/omnipay-creditcall/master.svg?style=flat-square)](https://travis-ci.org/meebio/omnipay-creditcall)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/meebio/omnipay-creditcall.svg?style=flat-square)](https://scrutinizer-ci.com/g/meebio/omnipay-creditcall/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/meebio/omnipay-creditcall.svg?style=flat-square)](https://scrutinizer-ci.com/g/meebio/omnipay-creditcall)
 [![Total Downloads](https://img.shields.io/packagist/dt/meebio/omnipay-creditcall.svg?style=flat-square)](https://packagist.org/packages/meebio/omnipay-creditcall)
 
 
@@ -36,6 +34,13 @@ This driver supports following transaction types:
 - purchase($options) - authorize and immediately capture an amount on the customer's card
 - refund($options) - refund an already processed transaction
 - void($options) - generally can only be called up to 24 hours after submitting a transaction
+
+Gateway instantiation:
+
+    $gateway = Omnipay::create('Creditcall');
+    $gateway->setTerminalId('99960713');
+    $gateway->setTransactionKey('5CbEvg8hXCe3ASs6');
+    $gateway->setTestMode(true);
 
 Driver also supports paying with `cardReference` instead of `card`, 
 but gateway requires also additional parameter `cardHash`. It can be used in authorize and purchase requests like that:

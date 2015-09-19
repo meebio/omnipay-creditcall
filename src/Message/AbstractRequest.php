@@ -10,8 +10,15 @@ use SimpleXMLElement;
  */
 abstract class AbstractRequest extends BaseAbstractRequest
 {
-    protected $liveEndpoint = 'https://api.example.com';
-    protected $testEndpoint = 'https://api-test.example.com';
+    /**
+     * @var string
+     */
+    protected $liveEndpoint = 'https://live.cardeasexml.com/generic.cex';
+
+    /**
+     * @var string
+     */
+    protected $testEndpoint = 'https://test.cardeasexml.com/generic.cex';
 
     /**
      * @return string
