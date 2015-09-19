@@ -125,6 +125,10 @@ abstract class AbstractRequest extends BaseAbstractRequest
         return $data;
     }
 
+    /**
+     * @param SimpleXMLElement $data
+     * @return Response
+     */
     public function sendData($data)
     {
         $headers      = array(
@@ -135,11 +139,18 @@ abstract class AbstractRequest extends BaseAbstractRequest
         return $this->createResponse($httpResponse->xml());
     }
 
+    /**
+     * @return string
+     */
     protected function getEndpoint()
     {
         return $this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
     }
 
+    /**
+     * @param string $data
+     * @return Response
+     */
     protected function createResponse($data)
     {
         return $this->response = new Response($this, $data);

@@ -213,4 +213,13 @@ class AuthorizeRequest extends AbstractRequest
     {
         return $this->setParameter('cardHash', $value);
     }
+
+    /**
+     * @param string $data
+     * @return Response
+     */
+    protected function createResponse($data)
+    {
+        return $this->response = new AuthorizeResponse($this, $data);
+    }
 }

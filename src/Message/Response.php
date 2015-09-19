@@ -3,7 +3,6 @@
 namespace Omnipay\Creditcall\Message;
 
 use Omnipay\Common\Message\AbstractResponse;
-use Omnipay\Common\Message\RequestInterface;
 
 /**
  * Response
@@ -36,7 +35,7 @@ class Response extends AbstractResponse
     }
 
     /**
-     * @return string
+     * @return null|string
      */
     public function getMessage()
     {
@@ -48,7 +47,7 @@ class Response extends AbstractResponse
         foreach ((array)$this->data->Result->Errors as $error) {
             $error = (string)$error;
             if ($error !== '') {
-                $errors[] = $this->mapError($error);
+                $errors[] = $error;
             }
         }
 
@@ -69,50 +68,5 @@ class Response extends AbstractResponse
     public function getCardHash()
     {
         return isset($this->data->CardDetails->CardHash) ? (string)$this->data->CardDetails->CardHash : null;
-    }
-
-    /**
-     * @return null
-     */
-    public function getRedirectUrl()
-    {
-        return null;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRedirectMethod()
-    {
-        return 'GET';
-    }
-
-    /**
-     * @return array
-     */
-    public function getRedirectData()
-    {
-        return array();
-    }
-
-    /**
-     * @param string $error
-     * @return string
-     */
-    protected function mapError($error)
-    {
-        $errorsMap = array(
-            'CSC Invalid Length.' => 'The CVV provided is invalid.',
-            'AmountTooSmall'      => 'The amount is too small for payment to be processed.',
-            'cvv_not_matched'     => 'The CVV provided is invalid.',
-            'address_not_matched' => 'The Address provided is invalid.',
-            'zip_not_matched'     => 'The Zip code provided is invalid.',
-        );
-
-        if (array_key_exists($error, $errorsMap)) {
-            return $errorsMap[$error];
-        }
-
-        return $error;
     }
 }

@@ -8,7 +8,7 @@ namespace Omnipay\Creditcall\Message;
 class AuthorizeResponse extends Response
 {
     /**
-     * @return array|string
+     * @return null|string
      */
     public function getMessage()
     {
@@ -23,18 +23,18 @@ class AuthorizeResponse extends Response
         if (!$this->isSuccessful() && is_null($errors)) {
             $errorsArray = array();
             if ($this->isCvvNotMatched()) {
-                $errorsArray[] = $this->mapError('cvv_not_matched');
+                $errorsArray[] = 'CvvNotMatched';
             }
 
             if ($this->isAddressNotMatched()) {
-                $errorsArray[] = $this->mapError('address_not_matched');
+                $errorsArray[] = 'AddressNotMatched';
             }
 
             if ($this->isZipNotMatched()) {
-                $errorsArray[] = $this->mapError('zip_not_matched');
+                $errorsArray[] = 'ZipNotMatched';
             }
 
-            $errors =  count($errors) > 0 ? implode(' ', $errorsArray) : null;
+            $errors =  count($errorsArray) > 0 ? implode(' ', $errorsArray) : null;
         }
 
         return $errors;
